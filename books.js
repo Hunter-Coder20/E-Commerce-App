@@ -22,7 +22,7 @@ function renderBooks(filter) {
         Deep Work
       </div>
       <div class="book__ratings">
-       ${ratingHTML(book.rating)}
+       ${ratingsHTML(book.rating)}
       </div>
       <div class="book__price">
         <span>$${book.originalPrice.toFixed(2)}</span>
@@ -36,13 +36,11 @@ function renderBooks(filter) {
 
 function ratingsHTML(rating) {
   let ratingHTML = ''
-  let rating = 4.5
-
   for (let i = 0; i < Math.floor(rating); ++i) {
-    ratingHTML += '<i class="fas fa-star"></i>n'
+    ratingHTML += '<i class="fas fa-star"></i>\n'
   }
-   if (Number.isInteger(rating)) {
-    rating += '<i class="fas fa-star-half-alt"></i>n'
+   if (!Number.isInteger(rating)) {
+    rating += '<i class="fas fa-star-half-alt"></i>\n'
   }
   return ratingHTML
 }
